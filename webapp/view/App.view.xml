@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="copersucar.com.v2.gotc01.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+        <App id="app">
+        </App>
+</mvc:View>

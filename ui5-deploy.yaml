@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: copersucar.com.v2.gotc01
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        ignoreCertError: true
+        target:
+          destination: FID
+          url: https://corfiodbapd.copersucar.com.br:8443
+          client: "100"
+          strictSSL: false 
+          auth: basic
+        credentials:
+          username: env:UI5_USERNAME
+          password: env:UI5_PASSWORD
+        app:
+          name: ZUI5_GOTCRECVEIC
+          description: Recebimento de Veículos (quinta fila)
+          package: ZFIORI
+          transport: FIDK900116

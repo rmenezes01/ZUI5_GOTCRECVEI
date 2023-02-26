@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+
+.flexWrap {
+    flex-wrap: wrap;
+}
+
+.flexBreak {
+    flex-basis: 100%;
+}
+
+.sapMRbB .sapMRbBOut { 
+    margin-left: 0.1em !important;
+}

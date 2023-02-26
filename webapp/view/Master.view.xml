@@ -1,0 +1,87 @@
+<mvc:View
+	controllerName="copersucar.com.v2.gotc01.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form">	
+ 					
+		<Page title="{= ${view>/startUpParams/processo} === 'R5' ? ${i18n>title} : ${i18n>title2} }" busy="{view>/state/busy}" busyIndicatorDelay="{view>/state/delay}">
+		<content>
+			<FlexBox direction="Column" alignItems="Start" width="100%" class="sapUiTinyMarginBeginEnd">
+				<items>					
+					<HBox>
+						<RadioButton text="{i18n>master.field.ticket}" id="rb_ticket" fieldGroupIds="opt" selected="true" textAlign="Left" textDirection="LTR" select="onRB_Ticket" width="7rem">
+							<layoutData>
+								<FlexItemData growFactor="6" />
+							</layoutData>
+						</RadioButton>
+						<Input id="idE_Ticket" class="sapUiTinyMarginBeginEnd" maxLength="44" textAlign="Begin" textDirection="LTR" type="Text" width="{= ${device>/system/phone} ? '8em' : '100%' }">	<!--width="15rem"-->
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Input>
+						<Button id="btnBar" class="sapUiTinyMarginBeginEnd" icon="sap-icon://bar-code" type="Transparent" press="readBarCode" ariaLabelledBy="editButtonLabel">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+						<!--
+						<layoutData>
+							<FlexItemData styleClass=".flexBreak" />
+						</layoutData>
+						-->
+					</HBox>
+					<HBox wrap="NoWrap">
+						<RadioButton text="{i18n>master.field.placa}" id="rb_placa" fieldGroupIds="opt" textAlign="Left" textDirection="LTR" select="onRB_Placa" width="7rem" >
+						</RadioButton>							
+						<Input id="idE_Placa" class="sapUiTinyMarginBegin" maxLength="20" textAlign="Begin" textDirection="LTR" editable="false" type="Text">
+						</Input>
+					</HBox>
+					<HBox wrap="NoWrap">
+						<RadioButton text="{i18n>master.field.agend}" id="rb_agend" fieldGroupIds="opt" textAlign="Left" textDirection="LTR" select="onRB_Agend" width="7rem" />				
+						<Input id="idE_Agend" class="sapUiTinyMarginBegin" maxLength="20" textAlign="Begin" textDirection="LTR" editable="false" type="Text" />
+					</HBox>
+				</items>
+			</FlexBox>
+
+			<f:SimpleForm  editable="true" layout="ResponsiveGridLayout">
+		  		<f:content>
+		  	
+					<VBox>
+						<CheckBox id="C1" text="{i18n>master.chkbx.zzplcbs}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C7" text="{i18n>master.chkbx.zzsemcb}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C2" text="{i18n>master.chkbx.zzcbirr}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C3" text="{i18n>master.chkbx.zzlcirr}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C8" text="{i18n>master.chkbx.zzsemlc}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C9" text="{i18n>master.chkbx.zzautod}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C10" text="{i18n>master.chkbx.zztomba}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C11" text="{i18n>master.chkbx.zzxlona}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }"/>
+						<CheckBox id="C4" text="{i18n>master.chkbx.zzdvfis}" selected="false" visible="{= ${view>/startUpParams/processo} === 'R5' }" />
+						
+						<CheckBox id="C5" text="{i18n>master.chkbx.zzpream}" select="preamostCheck" visible="{= ${view>/startUpParams/processo} === 'RE' }" /> <!--select="preamostCheck" />-->
+						<CheckBox id="C6" text="{i18n>master.chkbx.zzflexi}" select="flexibilCheck" visible="{= ${view>/startUpParams/processo} === 'RE' }"  /> <!--select="flexibilCheck"/>-->
+						
+					</VBox>
+		  		</f:content>
+			</f:SimpleForm>
+		
+		</content>
+
+		<footer>
+			<Bar class="sapContrast sapContrastPlus"
+				busy="{view>/state/busy}" busyIndicatorDelay="{view>/state/delay}">
+				<contentLeft>
+					<Button width="4rem" id="idBT_voltar"
+						icon="sap-icon://sys-back-2" type="Reject" press="fechar" />
+				</contentLeft>
+				<contentMiddle>
+					<Button width="4rem" id="idBT_limpar" icon="sap-icon://eraser"
+						press="limpar" />
+				</contentMiddle>
+				<contentRight>
+					<Button width="4rem" id="idBT_aplicar" icon="sap-icon://accept"
+						type="Accept" press="aplicar" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>
